@@ -1,6 +1,5 @@
-grade = [9.1, 8.8, 9.0]
-mysum = sum(grade)
-num = len(grade)
-mean = mysum / num
+mood = 'Good'
 
-print(mysum, num, mean)
+print(mood.upper())
+print(mood.lower())
+print(mood.title())
