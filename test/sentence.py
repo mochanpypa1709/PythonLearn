@@ -6,8 +6,6 @@ def sentence(phrase):
     else:
         return "{}.". format(capital)
 
-print(sentence("how are you"))
-
 results = []
 while True:
     message = input("Say something: ")
