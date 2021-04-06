@@ -3,3 +3,5 @@ def calculate_length(lst):
 
 nomor=[1,2,3]
 print(calculate_length(nomor))
+
+
