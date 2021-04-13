@@ -9,4 +9,10 @@ df5=pandas.read_csv("Pandas/supermarkets-semi-colons.txt",sep=';')
 df6=pandas.read_csv("Pandas/no_header.txt")
 df6.columns = ("ID","Address","City","Zip","Country","Name","Employee")
 
-print(df6)
+#geocode
+from geopy.geocoders import ArcGIS
+nom = ArcGIS()
+df1["Address"]=df1["Address"]+", "+df1["City"]+", "+df1["State"]+", "+df1["Country"]
+df1["Coordinates"]=df1["Address"].apply(nom.geocode)
+df1["Latitude"]=df1["Coordinates"].apply(lambda x: x.latitude if x !=None else None) 
+print(df1)
