@@ -1,0 +1,5 @@
+create virtual environment --> need for deploy
+1. need virtual library --> pip install virtualenv
+2. create clean folder for web app
+3. create virtual folder --> python -m venv virtual
+4. 
