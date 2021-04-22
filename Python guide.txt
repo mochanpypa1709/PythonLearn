@@ -1,5 +1,42 @@
-create virtual environment --> need for deploy
+#create virtual environment --> need for deploy
 1. need virtual library --> pip install virtualenv
 2. create clean folder for web app
 3. create virtual folder --> python -m venv virtual
-4. 
+4. open shell command line
+5. in path virtual\Scripts\pip install flask --> to add flask library in specific folder virtual
+6. in path virtual\Scripts\python Demo\main.py --> exec the python file to launch the web flask
+
+===================================================
+#deploy website to heroku
+1. install heroku toolbelt
+2. open terminal in specific folder
+3. type --> heroku login
+4. heroku create mochan179 --> create web domain
+5. heroku apps --> list of web domain
+6. you can access web with url --> mochan179.herokuapp.com
+7. in path ..\virtual\Scripts\pip install gunicorn --> to install http server library
+8. in path ..\virtual\Scripts\pip freeze > requirements.txt --> to move existing library to requirement file
+9. create Procfile in folder under web app --> without any extension
+10. type code in Procfile --> web: gunicorn [the python file for exec web flask]:app
+11. create file Runtime.txt in folder under web app
+12. type git init --> in folder under web app
+13. type git add .
+14. type git commit -m "first commit"
+15. type heroku git:remote --app [name of your app]
+16. type git push heroku master
+17. if step 16 error, type this --> 
+	git config --global user.email "herokun email account"
+	git config --global user.name "herokun name account"
+	then do again step 16
+18. type heroku open
+
+===================================================
+#push web app to heroku
+1. go to cmd 
+2. type --> heroku login
+	enter email and password
+3. heroku info --> to check information of web app
+4. git add.
+5. git commit -n "your text note here"
+6. git push heroku master
+7. heroku open --> to open website in heroku cloud
