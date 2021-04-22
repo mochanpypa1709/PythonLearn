@@ -1,5 +1,3 @@
-
-*.py
 mysite/virtual/Scripts/pythonw.exe
 mysite/virtual/Scripts/python.exe
 mysite/virtual/Scripts/pip3.exe
