@@ -14,9 +14,6 @@ def insert(item, qty, price):
     conn.commit()
     conn.close()
 
-#create_table()
-#insert("Kopi", 5, 18)
-
 def view():
     conn = sqlite3.connect("database-section/lite.db")
     cur = conn.cursor()
@@ -39,6 +36,8 @@ def update(qyt,price,item):
     conn.commit()
     conn.close()
 
+#create_table()
+#insert("Kopi", 5, 18)
 #delete("Kopi")
 update(6,20,"Kopi")
 print(view())
