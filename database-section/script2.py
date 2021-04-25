@@ -15,7 +15,7 @@ def insert(item, qty, price):
     conn.close()
 
 def view():
-    conn = mysql.connector.connect("database-section/lite.db")
+    conn = mysql.connector.connect(database="learnpython", user="root", password="", host="localhost")
     cur = conn.cursor()
     cur.execute("SELECT * FROM store")
     rows=cur.fetchall()
@@ -23,21 +23,21 @@ def view():
     return rows
 
 def delete(item):
-    conn = mysql.connector.connect("database-section/lite.db")
+    conn = mysql.connector.connect(database="learnpython", user="root", password="", host="localhost")
     cur = conn.cursor()
-    cur.execute("DELETE FROM store WHERE item=?", (item,))
+    cur.execute("DELETE FROM store WHERE item=%s", (item,))
     conn.commit()
     conn.close()
 
 def update(qyt,price,item):
-    conn = mysql.connector.connect("database-section/lite.db")
+    conn = mysql.connector.connect(database="learnpython", user="root", password="", host="localhost")
     cur = conn.cursor()
-    cur.execute("UPDATE store SET quantity=?, price=? WHERE item=?", (qyt,price,item))
+    cur.execute("UPDATE store SET quantity=%s, price=%s WHERE item=%s", (qyt,price,item))
     conn.commit()
     conn.close()
 
 create_table()
-insert("Coklat", 3, 25)
+#insert("Alpukat Kocok", 3, 25)
 #delete("Kopi")
-#update(6,20,"Kopi")
-#print(view())
+update(10,30,"Susu")
+print(view())
