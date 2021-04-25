@@ -40,3 +40,16 @@
 5. git commit -n "your text note here"
 6. git push heroku master
 7. heroku open --> to open website in heroku cloud
+
+======================================================
+download precompile python library
+https://www.lfd.uci.edu/~gohlke/pythonlibs/#psycopg
+
+======================================================
+
+postgresSQL
+
+superuser : postgres
+pass: postgres123
+port: 5432
+=======================================================
