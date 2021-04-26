@@ -53,3 +53,9 @@ superuser : postgres
 pass: postgres123
 port: 5432
 =======================================================
+#create python installer
+
+pip install pyinstaller
+pyinstaller --onefile --windowed [pyhton script]
+
+=======================================================
