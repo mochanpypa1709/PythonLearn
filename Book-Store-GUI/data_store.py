@@ -10,34 +10,42 @@ def connect():
 def insert(title,author,year,isbn):
     conn = sqlite3.connect("Book-Store-GUI/books.db")
     cur = conn.cursor()
-    cur.execute("INSERT INTO book VALUES (?,?,?,?)",(title,author,year,isbn))
+    cur.execute("INSERT INTO book VALUES (NULL,?,?,?,?)",(title,author,year,isbn))
     conn.commit()
     conn.close()
 
 def view():
     conn = sqlite3.connect("Book-Store-GUI/books.db")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM store")
+    cur.execute("SELECT * FROM book")
     rows=cur.fetchall()
     conn.close()
     return rows
 
-def delete(item):
+def search(title="",author="",year="",isbn=""):
     conn = sqlite3.connect("Book-Store-GUI/books.db")
     cur = conn.cursor()
-    cur.execute("DELETE FROM store WHERE item=?", (item,))
+    cur.execute("SELECT * FROM book WHERE title=? OR author=? OR year=? OR isbn=?", (title,author,year,isbn))
+    rows=cur.fetchall()
+    conn.close()
+    return rows 
+
+def delete(id):
+    conn = sqlite3.connect("Book-Store-GUI/books.db")
+    cur = conn.cursor()
+    cur.execute("DELETE FROM book WHERE id=?", (id,))
     conn.commit()
     conn.close()
 
-def update(qyt,price,item):
+def update(title,author,year,isbn,id):
     conn = sqlite3.connect("Book-Store-GUI/books.db")
     cur = conn.cursor()
-    cur.execute("UPDATE store SET quantity=?, price=? WHERE item=?", (qyt,price,item))
+    cur.execute("UPDATE book SET title=?, author=?, year=?, isbn=? WHERE id=?", (title,author,year,isbn,id))
     conn.commit()
     conn.close()
+
 
 connect()
-#insert("Kopi", 5, 18)
-#delete("Kopi")
-#update(6,20,"Kopi")
-#print(view())
+#insert("The Moon","Sub Zero",2021,9883339)
+update("The Moon","Scorpio",2021,9883339,2)
+print(view())
