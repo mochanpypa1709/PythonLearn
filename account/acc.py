@@ -9,7 +9,7 @@ class Account:
         self.balance=self.balance - amount
     
     def deposit(self, amount):
-        self.balance=self.balance + amount\
+        self.balance=self.balance + amount
 
     def commit(self):
         with open(self.filepath, 'w') as file:
